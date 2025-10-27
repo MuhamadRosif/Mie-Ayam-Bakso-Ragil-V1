@@ -327,7 +327,7 @@ with main_col:
                     with open(MENU_FILE,"w",encoding="utf-8") as f:
                         json.dump({"makanan":st.session_state.menu_makanan,"minuman":st.session_state.menu_minuman}, f, ensure_ascii=False, indent=2)
                     st.success(f"{item} dihapus")
-                    st.experimental_rerun()
+                    st.rerun()
 
             # Tombol update
             update_key = f"update-minum-{item}"

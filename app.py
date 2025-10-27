@@ -245,7 +245,7 @@ with main_col:
                     save_transaction(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),st.session_state.nama_pelanggan,pesanan_aktif,subtotal,diskon,total_bayar,uang,kembalian)
                     st.session_state.pesanan = {}
                     st.session_state.page = "struk"
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("Uang diterima kurang!")
 
@@ -281,7 +281,7 @@ with main_col:
                     df.drop(idx,inplace=True)
                     df.to_csv(DATA_FILE,index=False,encoding="utf-8-sig")
                     st.success("Transaksi dihapus")
-                    st.experimental_rerun()
+                    st.rerun()
         else:
             st.info("Belum ada transaksi.")
 
@@ -301,7 +301,7 @@ with main_col:
                     with open(MENU_FILE,"w",encoding="utf-8") as f:
                         json.dump({"makanan":st.session_state.menu_makanan,"minuman":st.session_state.menu_minuman}, f, ensure_ascii=False, indent=2)
                     st.success(f"{item} dihapus")
-                    st.experimental_rerun()
+                    st.rerun()
 
             # Tombol update
             update_key = f"update-makanan-{item}"
@@ -312,7 +312,7 @@ with main_col:
                 with open(MENU_FILE,"w",encoding="utf-8") as f:
                     json.dump({"makanan":st.session_state.menu_makanan,"minuman":st.session_state.menu_minuman}, f, ensure_ascii=False, indent=2)
                 st.success(f"{nama_baru} diperbarui")
-                st.experimental_rerun()
+                st.rerun()
 
         st.subheader("🥤 Menu Minuman")
         for item,harga in st.session_state.menu_minuman.copy().items():
@@ -338,7 +338,7 @@ with main_col:
                 with open(MENU_FILE,"w",encoding="utf-8") as f:
                     json.dump({"makanan":st.session_state.menu_makanan,"minuman":st.session_state.menu_minuman}, f, ensure_ascii=False, indent=2)
                 st.success(f"{nama_baru} diperbarui")
-                st.experimental_rerun()
+                st.rerun()
 
         # Tambah menu baru
         st.markdown("### ➕ Tambah Menu Baru")
@@ -354,7 +354,7 @@ with main_col:
                 with open(MENU_FILE,"w",encoding="utf-8") as f:
                     json.dump({"makanan":st.session_state.menu_makanan,"minuman":st.session_state.menu_minuman}, f, ensure_ascii=False, indent=2)
                 st.success(f"{nama_baru} berhasil ditambahkan")
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.warning("Isi nama dan harga menu dengan benar.")
 
@@ -366,4 +366,4 @@ with main_col:
         st.write("Dibuat dengan ❤️ oleh Mas Ragil.")
 
 st.markdown("---")
-st.caption("© 2025 Mas Ragil — Aplikasi Kasir 🍜 | Versi Full Final")
+st.caption("© 2025 Mas Rosif — Aplikasi Kasir 🍜 | Versi Full Final")
